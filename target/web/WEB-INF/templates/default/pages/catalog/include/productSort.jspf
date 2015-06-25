@@ -1,0 +1,185 @@
+<%@ include file="/common/taglibs.jsp"%>
+<%@ page pageEncoding="UTF-8"%>
+<%@ taglib prefix="attribute" tagdir="/WEB-INF/tags/attribute"%>
+<%@ taglib prefix="app" tagdir="/WEB-INF/tags/app"%>
+<%@ taglib prefix="product" tagdir="/WEB-INF/tags/catalog"%>
+                   
+			<div class="tit">
+                <div class="tt_2 fl">
+                    排序：<select id="Select1" name="Select1"  onchange="changeSort(this.value)">
+			                        <option value="s1" <c:if test="${param.sort == 's1' or empty param.sort}">selected</c:if>><fmt:message key="productList.sort.new_arrival"/></option>
+									<option value="s2" <c:if test="${param.sort == 's2'}">selected</c:if>><fmt:message key="productList.sort.best_selling"/></option>
+									<option value="s3" <c:if test="${param.sort == 's3'}">selected</c:if>><fmt:message key="productList.sort.item_name"/></option>
+									<option value="s4" <c:if test="${param.sort == 's4'}">selected</c:if>><fmt:message key="productList.sort.price.lowToHigh"/></option>
+									<option value="s5" <c:if test="${param.sort == 's5'}">selected</c:if>><fmt:message key="productList.sort.price.highToLow"/></option>
+			                    </select>
+                </div>
+                <div class="tt_3 fl">
+                    查看：<select id="Select2" name="Select2" onchange="changePageSize(this.value)">
+			                        <option value="20" <c:if test="${param.rows == '20' or empty param.rows}">selected</c:if>>20</option>
+									<option value="40" <c:if test="${param.rows == '40'}">selected</c:if>>40</option>
+									<option value="60" <c:if test="${param.rows == '60'}">selected</c:if>>60</option>
+			                    </select>
+                </div>
+                <div class="tt_4 fl">
+                    <div class="fl">
+                        筛选：
+                    </div>
+                    <div class="ttah fl">
+                    		<c:if test="${sizeCode != null}">
+		                    	<a href="javascript:void(0)">所有尺码</a> | 
+		                        <product:skuOption skuOptionCode="size_${sizeCode}" var="sizeOption"></product:skuOption>
+		                        <ul class="sort_list" id="sizeList">
+		                        <c:forEach items="${sizeOption.skuOptionValues}" var="optionValue">
+		                       		<c:choose>
+										<c:when test="${cfn:contains4Array(paramValues['size'],optionValue.skuOptionValue)}">
+											<li><input type="checkbox" value="${optionValue.skuOptionValue}" name="size" checked="checked" id="${checkBoxIndex}"><label for="${checkBoxIndex}">${optionValue.skuOptionValueName}</label></li>
+										</c:when>
+										<c:otherwise>
+											<li><input type="checkbox" value="${optionValue.skuOptionValue}" name="size" id="${checkBoxIndex}"><label for="${checkBoxIndex}">${optionValue.skuOptionValueName}</label></li>
+										</c:otherwise>
+									</c:choose>
+		                   			<c:set var="checkBoxIndex" value="${checkBoxIndex+1}"/>
+								</c:forEach>
+								</ul>
+							</c:if>
+
+	                    	 <a href="javascript:void(0)">所有颜色</a> | 
+	                       <product:skuOption skuOptionCode="color" var="colorOption"></product:skuOption>
+	                        <ul class="sort_list"  id="colorList">
+	                        <c:forEach items="${colorOption.skuOptionValues}" var="optionValue">
+	                       		<c:choose>
+									<c:when test="${cfn:contains4Array(paramValues['color'],optionValue.skuOptionValue)}">
+										<li><input type="checkbox" value="${optionValue.skuOptionValue}" name="color" checked="checked" id="${checkBoxIndex}">
+										<label for="${checkBoxIndex}">${optionValue.skuOptionValueName}</label><span id="color_${optionValue.skuOptionValue}"></span>
+	                                       </li>
+									</c:when>
+									<c:otherwise>
+										<li><input type="checkbox" value="${optionValue.skuOptionValue}" name="color" id="${checkBoxIndex}">
+										<label for="${checkBoxIndex}">${optionValue.skuOptionValueName}</label><span id="color_${optionValue.skuOptionValue}"></span>
+	                                
+	                                       </li>
+									</c:otherwise>
+								</c:choose>
+	                   			<c:set var="checkBoxIndex" value="${checkBoxIndex+1}"/>
+							</c:forEach>
+							</ul>
+
+	                    	<a href="javascript:void(0)">所有品牌</a>| 
+	                        <product:brand var="brandList"></product:brand>
+	                        <ul class="sort_list"  id="brandList">
+	                        <c:forEach items="${brandList}" var="brand">
+								<li>
+									<input type="checkbox" brandValue="${brand.brandId }" value="${brand.brandId}" id="brand_${brand.brandId }" <c:if test='${param.brandId == brand.brandId }'>checked="checked"</c:if>>
+									<label for="brand_${brand.brandId }">${brand.brandName}</label>
+	                            </li>
+							</c:forEach>
+							</ul>
+							<input type="hidden" id="brandId" <c:if test="${not empty param.brandId}">name="brandId" </c:if>value="${param.brandId}"/>
+
+	                    	<a href="javascript:void(0)">所有价格</a>| 
+							<ul class="sort_list" id="productListPrice">
+	                        	<li><input type="checkbox" maxVal="199"<c:if test="${param.maxPrice==199}"> checked="checked"</c:if> id="${checkBoxIndex}"><label for="${checkBoxIndex}">￥0-￥199</label></li>
+	                    		<c:set var="checkBoxIndex" value="${checkBoxIndex+1}"/>
+	                            <li><input type="checkbox" minVal="200" maxVal="399"<c:if test="${param.maxPrice==399}"> checked="checked"</c:if> id="${checkBoxIndex}"><label for="${checkBoxIndex}">￥200-￥399</label></li>
+	                    		<c:set var="checkBoxIndex" value="${checkBoxIndex+1}"/>
+	                            <li><input type="checkbox" minVal="400" maxVal="799"<c:if test="${param.maxPrice==799}"> checked="checked"</c:if> id="${checkBoxIndex}"><label for="${checkBoxIndex}">￥400-￥799</label></li>
+	                    		<c:set var="checkBoxIndex" value="${checkBoxIndex+1}"/>
+	                            <li><input type="checkbox" minVal="800" maxVal="999"<c:if test="${param.maxPrice==999}"> checked="checked"</c:if> id="${checkBoxIndex}"><label for="${checkBoxIndex}">￥800-￥999</label></li>
+	                    		<c:set var="checkBoxIndex" value="${checkBoxIndex+1}"/>
+	                            <li><input type="checkbox" minVal="1000"<c:if test="${param.minPrice==1000}"> checked="checked"</c:if> id="${checkBoxIndex}"><label for="${checkBoxIndex}">￥1000以上</label></li>
+	                       	</ul>
+	                       	<input type="hidden" id="minPrice" <c:if test="${not empty param.minPrice}">name="minPrice" </c:if>value="${param.minPrice}"/>
+	                       	<input type="hidden" id="maxPrice" <c:if test="${not empty param.maxPrice}">name="maxPrice" </c:if>value="${param.maxPrice}"/>
+	                       	
+	                       	<a href="javascript:void(0)" id="clearCondition">清除所有选项</a>
+
+                        <%--<a href="javascript:void(0)">所有类型</a> | 
+                        <product:productType var="productTypeList"></product:productType>
+                        <ul class="sort_list selected_color">
+                        <c:forEach items="${productTypeList}" var="productType">
+							<li>
+								<input type="checkbox" value="${productType.productTypeId}" name="productTypeId" id="productType_${productType.productTypeId }" <c:if test="${param.productTypeId == productType.productTypeId }">checked="checked"</c:if>>
+								<label for="productType_${productType.productTypeId }">${productType.productTypeName}</label>
+                            </li>
+						</c:forEach>
+						</ul>
+						<input type="hidden" id="productTypeId" <c:if test="${not empty param.productTypeId}">name="productTypeId" </c:if>value="${param.productTypeId}"/>--%>
+						
+                    </div>
+                    
+                </div>
+                
+            </div>          
+
+            <script>
+            var c=$("#productListForm").find("input:checkbox");
+        	c.change(function(){
+        		if(!$(this).attr("name")){
+        			if($(this).attr("checked")){
+        				$("#productListPrice").find("input:checkbox").not($(this)).attr("checked",false);
+        				var min=$(this).attr("minVal");
+        				if(min){
+        					$("#minPrice").attr("name","minPrice").val(min);
+        				}else{
+        					$("#minPrice").removeAttr("name");
+        				}
+        				var max=$(this).attr("maxVal");
+        				if(max){
+        					$("#maxPrice").attr("name","maxPrice").val(max);
+        				}else{
+        					$("#maxPrice").removeAttr("name");
+        				}
+        				debugger;
+        				var brandValue=$(this).attr("brandValue");
+        				if(brandValue){
+        					$("#brandId").attr("name","brandId").val(brandValue);
+        				}else{
+        					//$("#brandId").removeAttr("name");
+        				}
+        					
+        			}else{
+        				$("#minPrice,#maxPrice,#brandId").removeAttr("name");
+        			}
+        		}
+        		$("#productListForm").submit();
+        	});
+
+        	function tab(type,id){
+            	if(type==1){
+            		$("#tabList").html(""); 
+            	}
+            	else if(type==0){
+                	$("#tabList").html($("#" + id).html()); 
+            	} 
+        	}
+
+        	$(".ttah > a").toggle(
+                	function(){
+                    	//$(this).css("color","#7e0000"); 
+                    	$(".ttah > ul").hide();
+                    	$(this).next("ul").show();
+                    }
+        			,function(){
+        				$(".ttah > ul").hide();
+        				//$(this).css("color","#000000");
+        		    }
+        	);
+
+        	$("#clearCondition").click(function(){
+        		$("#minPrice,#maxPrice,#brandId").removeAttr("name");
+        		$("#productListForm").find("input:checkbox").attr("checked",false);
+				$("#productListForm").submit();
+			});
+			
+            </script>
+            
+            <style>
+            .sort_list {
+            	display: none;
+            	z-index: 111;position: absolute;width: 250px;background-color: #ebedec;border:1px solid #c9c9c9; line-height:18px; margin-top:2px; padding:0px 3px;
+            }
+            .sort_list label {
+            	cursor: pointer;
+            }
+            </style>

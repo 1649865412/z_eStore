@@ -1,0 +1,6 @@
+
+<link rel="icon" href="${resPath}/images/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="${resPath}/images/mindo.ico" type="image/x-icon" />
+		
+<link href="${resPath }/fashionPort/css/StyleSheet.css" rel="stylesheet" type="text/css" />
+<link href="${resPath }/fashionPort/css/jcarousel.css" rel="stylesheet" type="text/css" />	

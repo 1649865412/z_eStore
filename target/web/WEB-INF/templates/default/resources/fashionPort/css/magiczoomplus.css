@@ -1,0 +1,33 @@
+
+
+.box{width:505px;}
+.left-pro{width:505px; text-align:left;float:left}
+.left-pro .t1{width:72px;float:left}
+.left-pro .t2{width:410px; text-indent:0; float:left; padding-left:20px}
+.left-pro .t2 img{text-indent:0;}
+.left-pro .t3{ /*background:url(../images/img_13.gif) no-repeat top right;*/ width:410px; height:16px; float:right;}
+#showArea img{cursor:pointer;display:block; margin-bottom:12px; width:70px;border:1px solid #bebfbf;height:72px;float:left}
+#main_img{cursor:pointer;display:block}
+#gotop{cursor:pointer;display:block;}
+#gobottom{cursor:pointer;display:block;}
+#showArea{height:332px; margin-top:10px; margin-bottom:10px; overflow:hidden}
+
+
+/* CSS */
+.MagicZoomBigImageCont{border:1px solid #bebfbf;overflow:hidden;}
+.MagicZoomBigImageCont img{width:800px;height:823px}
+.MagicZoomBigImageCont iframe{width:410px;height:422px}
+.MagicZoomHeader{font:10px Tahoma, Verdana, Arial, sans-serif;color:#fff;background:#bebfbf;text-align:center !important}
+.MagicZoomPup{border:1px solid #aaa;background:#fff;cursor:hand;left:0}
+.MagicZoomLoading{text-align:center;background:#fff;color:#444;opacity:0.8;padding:3px 3px 3px 3px !important;display:none}
+.MagicZoomLoading img{padding-top:3px !important}
+.MagicThumb{cursor:url(cursor/zoomin.cur), pointer;outline:none}
+.MagicThumb-zoomed{cursor:default}
+.MagicThumb span{display:none}
+.MagicThumb-image{border:1px solid #bebfbf;outline:none}
+.MagicThumb-image-zoomed{cursor:url(cursor/zoomout.cur), pointer}
+.MagicThumb-caption{color:#333333;background-color:#F0F0F0;border:1px solid #bebfbf;border-top:none;font-family:Verdana, Helvetica;font-size:11px;padding:8px 16px}
+.MagicThumb-controlbar{display:block;height:18px}
+.MagicThumb-controlbar a{display:block;width:180px;height:180px;margin:0px 1px;outline:none;float:left;overflow:hidden}
+.MagicThumb-controlbar a span{display:block;width:1000px;height:1000px;background:transparent url(graphics/controlbar.png) no-repeat 0 0;outline:none;position:absolute;left:0px;top:0px}
+.MagicThumb-loading{border:1px solid #000;background:#fff url(graphics/loader.gif) no-repeat 2px 50%;padding:2px 2px 2px 22px;margin:0;text-decoration:none;text-align:left;font-size:8pt;font-family:sans-serif;}

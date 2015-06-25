@@ -1,0 +1,62 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="sales" tagdir="/WEB-INF/tags/sales"%>
+<%@ taglib prefix="product" tagdir="/WEB-INF/tags/catalog"%>
+
+<div class="log_ss">
+        <div class="log_main">
+            <div class="gmn_1 fl">
+            	<div class="gmn_1_fk" id="loginPromptHolder">
+            	</div>
+                <div class="gmn_1_fk" id="loginPromptHolderTemplateLogout">
+                    <a href="#">访客</a> | 
+                    <a href="/myaccount/account.html" onclick="window.location.href='/myaccount/account.html'">登录</a> | 
+                    <a  href="/signup.html" onclick="window.location.href='/signup.html'">注册</a>
+                </div>
+                <div class="gmn_1_fk" id="loginPromptHolderTemplateLogin" style="display: none;">
+                    <a href="/myaccount/account.html" onclick="window.location.href='/myaccount/account.html'">您好，{0}</a> | 
+                    <a href="${ctxPath}/j_acegi_logout" rel="nofollow" onclick="window.location.href='${ctxPath}/j_acegi_logout'">退出</a>
+                </div>
+                <div class="gmn_1_tl">
+                    <a href="#">中国内地</a> | <a href="http://fashion.com.hk" target="_blank">香港</a>
+                    <br /> 
+                    <a href="${ctxPath }/shop.html">店铺</a> | 电话 400-661-5677
+                </div>
+            </div>
+            <div class="gmn_2 fl">
+                <div class="logo" onclick="window.location.href='${ctxPath}/'">
+                </div>
+            </div>
+            <div class="gmn_3 fr">
+                <div class="gmn_3_zh">
+                    <ul>
+                        <li class="myzh fl"><a href="${ctxPath}/myaccount/account.html" onclick="window.location.href='${ctxPath}/myaccount/account.html'">我的账号</a></li>
+                        <li class="fl">|</li>
+                        <li class="cp fl">
+	                        <a href="${ctxPath}/cart/shoppingcart.html" id="minicartDiv">{0}件产品</a>
+	                        <a href="#" id="minicartDivTemplate" style="display: none;">{0}件产品</a>
+                        </li>
+                    </ul>
+                </div>
+                <form action="${ctxPath}/search-prod.html"  method="get" id="searchForm" onsubmit="return fnCheckSearchForm(this);">
+                <div class="gmn3_sear fl">
+	                
+	                    <div class="gk fl">
+	                        <input value="${param.q}" name="q" class="gs_key" type="text" title="Search for" autocomplete="off" placeholder="请输入关键字"/>
+	                    </div>
+	                    <div class="as fl">
+	                            <input type="image" src="${resPath }/fashionPort/images/sear_btn.jpg" />
+	                    </div>
+	               
+                </div>
+                 </form>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+		$mnc.refresh();
+		fillLoginPrompt();
+	</script>
+
+	<div >
+	</div>

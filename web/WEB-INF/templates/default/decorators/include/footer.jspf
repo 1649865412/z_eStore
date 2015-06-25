@@ -1,0 +1,92 @@
+<%@ page pageEncoding="UTF-8"%>
+<%@ include file="/common/taglibs.jsp"%>
+<%@ taglib prefix="content" tagdir="/WEB-INF/tags/content"%>
+<%@ taglib prefix="product" tagdir="/WEB-INF/tags/catalog"%>
+
+	<div class="footer">
+        <div class="foot_line">
+        </div>
+        <div class="foot">
+            <div class="ft_1 fl">
+                <div class="fft_tit">
+                    购物指南</div>
+                <ul class="fft_ul">
+                    <li><a href="/customer_service/_11.html">使用条款</a></li>
+                    <li><a href="/customer_service/_16.html">会员政策</a></li>
+                    <li><a href="/customer_service/_8.html">隐私政策</a></li>
+                </ul>
+            </div>
+            <div class="ft_1 fl">
+                <div class="fft_tit">
+                    支付方式</div>
+                <ul class="fft_ul">
+                    <li><a href="/customer_service/_6.html">支付方式</a></li>
+                    <%--<li><a href="/customer_service/_9.html">礼品卡使用指南</a></li>--%>
+                    <li><a href="/customer_service/_28.html">常见问题</a></li>
+                </ul>
+            </div>
+            <div class="ft_1 fl">
+                <div class="fft_tit">
+                    配送方式</div>
+                <ul class="fft_ul">
+                    <li><a href="/customer_service/_13.html">配送方式</a></li>
+                </ul>
+            </div>
+            <div class="ft_1 fl">
+                <div class="fft_tit">
+                    关于我们</div>
+                <ul class="fft_ul">
+                    <li><a href="/customer_service/_18.html">关于时尚港</a></li>
+                    <li><a href="/customer_service/_27.html">联系我们</a></li>
+                    <li><a href="/customer_service/_19.html">加入我们</a></li>
+                </ul>
+            </div>
+            <div class="ft_2 fl">
+                <div class="fft_tit">
+                    关注我们</div>
+                <div class="share_a">
+					<a href="http://weibo.com/sifangstreet" target="_blank"> <img
+							src="${resPath }/fashionPort/images/image011.png" width="30" /> </a>
+					<a href="javascript:void(0)"> <img
+							src="${resPath }/fashionPort/images/image017_03.png" width="30" />
+					</a>
+					<a href="javascript:void(0)"> <img
+							src="${resPath }/fashionPort/images/image015_03.png" width="30" />
+					</a>
+					<a href="${resPath}/images/weixin.jpg"  target="_blank"> <img
+							src="${resPath }/fashionPort/images/image013.png" width="30" />
+					</a>
+			</div>
+            </div>
+            <div class="ft_3 fl">
+                <div class="fft_tit">
+                    通过电子订阅，了解最新的时尚信息、最潮的品牌以及最新上架货品，跟上流行的脚步
+                </div>
+                <div class="fft_inp">
+                    <input  id="email" name="" placeholder="输入电邮地址"/>
+                </div>
+                <div class="fft_btn">
+                    <a href="javascript:void(0);" onclick="saveUserRss()">
+                        <img src="${resPath }/fashionPort/images/dr_btn.jpg" /></a>
+                </div>
+                <script>
+					function saveUserRss(){
+						var userName = $("#userName").val();
+						var email = $("#email").val();
+						if( /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/.test(email)){
+							$.post(__ctxPath+"/customer/addUserRss.html",{userName:userName,email:email},function(result){
+								if(result.status==1){
+									alert("订阅成功！");
+								}else{
+								}
+							},"json");
+						}else{
+							alert("请输入正确的邮件地址！");
+						}
+					}
+				</script>
+            </div>
+            <div class="blank45">
+            </div>
+        </div>
+    </div>

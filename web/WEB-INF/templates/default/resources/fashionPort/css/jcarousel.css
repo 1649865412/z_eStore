@@ -1,0 +1,25 @@
+
+
+/*product*/
+.jcarousel .jcarousel-container{ padding-left: 30px;width: 882px; overflow: hidden;}
+.jcarousel .proLeft{ width: 16px; height: 24px; top: 88px; left: 0px; background: url(../images/jt_left.jpg) no-repeat 0px 0px; position: absolute; cursor: pointer;}
+.jcarousel .proRight{width: 16px; height: 24px; top: 88px; right: 0px; background: url(../images/jt_right.jpg) no-repeat 0px 0px; position: absolute; cursor: pointer;}
+
+.jcarousel .jcarousel-clip{overflow: hidden;}
+.jcarousel .jcarousel-clip-horizontal{width: 852px;height: 190px; overflow: hidden;}
+.jcarousel .jcarousel-item{ padding-left: 8px; padding-right: 18px; min-height: 190px;	}
+/*.jcarousel .jcarousel-item-horizontal{ margin-right: 1px;}
+.jcarousel .jcarousel-direction-rtl .jcarousel-item-horizontal{ margin-left: 1px; }*/
+
+.jcarousel .pic_1{width: 140px;height: 134px; text-align:center;}
+.jcarousel .pic_1 IMG{width: 130px; height: 134px;}
+.jcarousel .tx_1{ padding:0px 11px; line-height:20px; font-weight:bold;}
+.jcarousel .tx_2{ padding:0px 11px; line-height:20px; }
+.jcarousel .tx_3{ padding:0px 11px; line-height:20px; }
+
+
+/*news*/
+.jcarousel .jcarousel-container_news{ padding-left: 45px;width: 320px; overflow: hidden;}
+.jcarousel .jcarousel-clip-horizontal_news{width: 270px;height: 550px; overflow: hidden;}
+.jcarousel .newLeft{ width: 20px; height: 34px; top: 188px; left: 0px; background: url(../images/news_left.jpg) no-repeat 0px 0px; position: absolute; cursor: pointer;}
+.jcarousel .newRight{width: 20px; height: 34px; top: 188px; right: 0px; background: url(../images/news_right.jpg) no-repeat 0px 0px; position: absolute; cursor: pointer;}

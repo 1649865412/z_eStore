@@ -1,0 +1,144 @@
+
+/*color*/
+#color_black{
+	 background:#000;
+}
+#color_gray {
+    background: #999;
+}
+#color_khaki {
+	background: #BDB76A;
+}
+#color_Naked {
+    background: #ffcc99;
+}
+#color_red {
+    background:#FF0000;
+}
+#color_pink {
+    background:#FFC0CB;
+}
+#color_watermelon  {
+    background:#FD5B78;
+}
+#color_cameo  {
+    background:#b3645f;
+}
+
+#color_green {
+    background: #3CB371	;
+}
+#color_wasabi {
+    background: #C1D169	;
+}
+#color_armygreen {
+    background: #6B7139	;
+}
+
+#color_fluorescence {
+   background: #ccff00	;
+}
+#color_skyblue {
+    background: #00BFFF;
+}
+#color_blue {
+    background: #0000FF;
+}
+#color_Kleinblue {
+    background: #4169E1;
+}
+#color_darkblue {
+    background: #00008B;
+}
+#color_orange {
+    background: #FFA500;
+}
+
+#color_gold {
+	 background: #CCA94F ;
+}
+#color_silvery {
+	 background: #c0c0c0;
+}
+#color_rosered {
+	 background: #FE007F;
+}
+#color_burgundy  {
+	 background: #852839;
+}
+#color_darkgreen {
+	 background: #006400;
+}
+#color_yellow {
+    background:#FFFF00;
+}
+#color_Lemonyellow {
+    background:#ffea2f;
+}
+#color_lightyellow {
+    background:#F9E397;
+}
+#color_ricewhite {
+    background:#FDF5E6;
+}
+#color_champagne  {
+    background:#eee8aa;
+}
+#color_beige  {
+    background:#ffebcd;
+}
+#color_purple {
+    background:#A757A8;
+}
+#color_rifleblack {
+    background:#545454;
+}
+#color_brown {
+    background:#804000;
+}
+#color_coffeebrown {
+    background:#A67B5B;
+}
+#color_redbrown {
+    background:#5f2500;
+}
+#color_copper {
+    background:#b87333;
+}
+#color_camel {
+    background:#967353;
+}
+
+#color_white {
+    background: #fff;
+	border:#CCC 1px solid;
+}
+#color_alpha {
+    background: #fff;
+	border:#000 1px dashed;
+}
+#color_metalliccolor {
+    background:url(../images/color_bg.jpg) center;
+}
+#color_iridescent  {
+    background:url(../images/iridescent.jpg) center;
+}
+
+.success_box {
+	background: #c8d48c;
+	color: #fff;
+	display:block;
+}
+
+.error_box, .warning_box, .caution_box {
+	background: #fcaeae;
+	color: #fff;
+}
+.error_box, .success_box, .warning_box, .caution_box {
+	font-size: 14px;
+	font-weight: bold;
+	padding:10px;
+	margin: 20px 10px;
+	float:left;
+	width:95%;
+}

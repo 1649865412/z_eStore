@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.cartmatic.estore.common.model.content.Information" table="information" select-before-update="false" dynamic-update="false" dynamic-insert="false">
+		<id name="id" column="id" type="java.lang.Integer" length="10">
+			<generator class="native" />
+		</id>
+		<property name="title" type="java.lang.String" update="true" insert="true" access="property" column="title" length="100" />
+		<property name="keyword" type="java.lang.String" update="true" insert="true" access="property" column="keyword" length="100" />
+		<property name="source" type="java.lang.String" update="true" insert="true" access="property" column="source" length="100" />
+		<property name="editor" type="java.lang.String" update="true" insert="true" access="property" column="editor" length="100" />
+		<property name="content" type="java.lang.String" update="true" insert="true" access="property" column="content" />
+		<property name="contentBody" type="java.lang.String" update="true" insert="true" access="property" column="contentBody" length="65535" not-null="false" unique="false" />
+		<property name="type" type="java.lang.Integer" update="true" insert="true" access="property" column="type" />
+		<property name="likeCount" type="java.lang.Integer" update="true" insert="true" access="property" column="likeCount" />
+		<property name="image" type="java.lang.String" update="true" insert="true" access="property" column="image" length="255" not-null="false" unique="false" />
+		<property name="image2" type="java.lang.String" update="true" insert="true" access="property" column="image2" length="255" not-null="false" unique="false" />
+		
+		<property name="createTime" type="java.util.Date" update="true" insert="true" access="property" column="createTime" length="0" not-null="true" unique="false" />
+		<property name="updateTime" type="java.util.Date" update="true" insert="true" access="property" column="updateTime" length="0" not-null="true" unique="false" />
+		
+	</class>
+</hibernate-mapping>

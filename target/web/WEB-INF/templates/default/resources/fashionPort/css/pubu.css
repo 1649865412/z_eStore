@@ -1,0 +1,4 @@
+#pubu {	margin:0 auto;position:relative;}
+#pubu .box {width:311px;height:auto;float:left;}
+#pubu .box .pic {width:311px;height:auto;}
+#pubu .box .pic img { display: block;width:301px;cursor: pointer;}
